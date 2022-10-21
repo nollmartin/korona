@@ -11,8 +11,8 @@ export class KoronaPipePipe implements PipeTransform {
     let testC: number = value.testCount;
     let coronaC: number = value.newCoronaCount;
     let hospitalC: number = value.hospitalCount;
-    if (!isTruth) {
-      testC = testC*2;
+    if (isTruth===false) {
+      testC = value.testCount*2;
       let maxNew = testC*0.05;
       if(coronaC>maxNew) {coronaC=Math.floor(maxNew);}
       hospitalC = Math.floor(hospitalC/3);

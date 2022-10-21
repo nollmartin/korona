@@ -2,5 +2,5 @@
     <div *ngFor="let row of dailyRows" [appAppCorona]="row" [isThruth]="iWantTheTruth">
       ({{row.date | date}}) {{row | koronaPipe:iWantTheTruth}}
     </div>
-    <button (click)="changeTruth()">{{iWantTheTruth===false ? 'NEM akarok igazat' : 'Igazat akarok'}}</button>
+    <button (click)="changeTruth()" [id]="'changeTruthButton'">{{iWantTheTruth===true ? 'NEM akarok igazat' : 'Igazat akarok'}}</button>
 </div>

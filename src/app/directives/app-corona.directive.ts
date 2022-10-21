@@ -20,7 +20,7 @@ export class AppCoronaDirective {
 
   @Input() set isThruth(isThruth: boolean) {
     this._isThruth=isThruth;
-    if (this.isThruth===false) {
+    if (this.isThruth===true) {
       this.element.nativeElement.style.backgroundColor='lightblue';
     } else {
       this.element.nativeElement.style.backgroundColor='white';

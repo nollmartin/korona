@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Daily } from './datas';
 
 @Component({
@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   dailyRows: Daily[] = [];
   date: Date = new Date('01 Jan 2022');
   rowCount: number = 10;
-  iWantTheTruth: boolean = true;
+  iWantTheTruth: boolean = false;
   
   ngOnInit(): void {
     for (let i = 1; i <= this.rowCount; i++) {
@@ -31,6 +31,13 @@ export class AppComponent implements OnInit {
       this.iWantTheTruth=false;
     } else {
       this.iWantTheTruth=true;
+    }
+  }
+
+  @HostListener('window:keydown', ['$event']) 
+  onKeyDown(e: any) {
+    if (e.key==='t' && e.altKey===true) {
+      this.changeTruth();
     }
   }
 
